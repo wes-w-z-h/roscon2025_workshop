@@ -2,7 +2,6 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image, PointCloud2
-from rosgraph_msgs.msg import Clock
 import numpy as np
 import time
 import sys
@@ -56,11 +55,14 @@ def main(args=None):
         sys.exit(1)
 
     topic = sys.argv[1].lower()
-    rclpy.init(args=args)
-    node = LatencyStatsNode(topic)
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.init(args=args)
+        node = LatencyStatsNode(topic)
+        rclpy.spin(node)
+        node.destroy_node()
+        rclpy.shutdown()
+    except KeyboardInterrupt:
+        pass
 
 if __name__ == '__main__':
     main()
