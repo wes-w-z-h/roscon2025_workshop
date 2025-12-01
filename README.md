@@ -84,7 +84,7 @@ If the sessions are locked, the password is `ubuntu`.
 ![Initial setup with 2 browsers](exercises/images/initial_setup.png)
 
 The 2 containers are based on the same image and are already configured with ROS 2 environment and `RMW_IMPLEMENTATION=rmw_zenoh_cpp`.  
-A [`justfile`](docker/justfile) in home directory defines some commands shorcuts that can be called with `just <command_name>`.  
+A [`justfile`](docker/files_to_copy/justfile) in home directory defines some commands shorcuts that can be called with `just <command_name>`.
 Each container has a `~/container_data` volume bound to your host's `container_volumes/robot_container` and `container_volumes/control_container` respectively.
 
 ## Exercises
